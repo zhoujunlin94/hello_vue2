@@ -6,6 +6,7 @@
 </template>
 
 <script>
+// 引入自定义组件
 import HelloWorld from './components/HelloWorld.vue'
 
 export default {
