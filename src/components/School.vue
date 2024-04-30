@@ -10,7 +10,7 @@ export default {
     name: 'School',
     data() {
         return {
-            name: '北京大学',
+            name: '北京大学copycopy',
             address: '北京',
         }
     }
