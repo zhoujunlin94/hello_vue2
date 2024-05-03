@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>localStorage</title>
+</head>
+<body>
+
+    <button onclick="addData()">新增数据</button>
+    <button onclick="queryData()">查询数据</button>
+    <button onclick="deleteData()">删除数据</button>
+    <button onclick="clearAll()">清空数据</button>
+    
+    <script>
+        function addData(){
+            localStorage.setItem("msg", "hello")
+            // 同名key  覆盖
+            localStorage.setItem("msg", "hello world")
+            // key  value都是string 调用对象的toString方法
+            localStorage.setItem("msg1", 666)
+            
+            let person = {
+                name: 'zangsan',
+                age: 30
+            }
+            console.log(person.toString())
+
+            localStorage.setItem("p1", person)
+            localStorage.setItem("p2", JSON.stringify(person))
+        }
+
+
+        function queryData(){
+            console.log(localStorage.getItem("msg"))
+            console.log(localStorage.getItem("msg1"))
+            let personStr = localStorage.getItem("p2")
+            console.log(personStr);
+            console.log(JSON.parse(personStr));
+
+            let p3 = localStorage.getItem("p3")
+            // 不存在的数据返回null
+            console.log(p3);
+            // JSON.parse(null)   => null
+            console.log(JSON.parse(p3));
+        }
+
+        function deleteData(){
+            localStorage.removeItem("msg1")
+        }
+
+        function clearAll(){
+            localStorage.clear()
+        }
+
+    </script>
+
+</body>
+</html>

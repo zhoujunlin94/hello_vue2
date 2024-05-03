@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sessionStorage</title>
+</head>
+<body>
+
+    <button onclick="addData()">新增数据</button>
+    <button onclick="queryData()">查询数据</button>
+    <button onclick="deleteData()">删除数据</button>
+    <button onclick="clearAll()">清空数据</button>
+    
+    <script>
+        function addData(){
+            sessionStorage.setItem("msg", "hello")
+            // 同名key  覆盖
+            sessionStorage.setItem("msg", "hello world")
+            // key  value都是string 调用对象的toString方法
+            sessionStorage.setItem("msg1", 666)
+            
+            let person = {
+                name: 'zangsan',
+                age: 30
+            }
+            console.log(person.toString())
+
+            sessionStorage.setItem("p1", person)
+            sessionStorage.setItem("p2", JSON.stringify(person))
+        }
+
+
+        function queryData(){
+            console.log(sessionStorage.getItem("msg"))
+            console.log(sessionStorage.getItem("msg1"))
+            let personStr = sessionStorage.getItem("p2")
+            console.log(personStr);
+            console.log(JSON.parse(personStr));
+
+            let p3 = sessionStorage.getItem("p3")
+            // 不存在的数据返回null
+            console.log(p3);
+            // JSON.parse(null)   => null
+            console.log(JSON.parse(p3));
+        }
+
+        function deleteData(){
+            sessionStorage.removeItem("msg1")
+        }
+
+        function clearAll(){
+            sessionStorage.clear()
+        }
+
+    </script>
+
+</body>
+</html>
