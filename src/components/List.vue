@@ -1,11 +1,11 @@
 <template>
   <div class="row">
     <!-- 展示用户列表 -->
-    <div class="card">
-      <a target="_blank">
-        <img  style="width: 100px" />
+    <div class="card" v-for="user in users" :key="user.login">
+      <a :href="user.html_url" target="_blank">
+        <img :src="user.avatar_url" style="width: 100px" />
       </a>
-      <p class="card-text"></p>
+      <p class="card-text">{{ user.login }}</p>
     </div>
     <!-- 展示欢迎词 -->
     <!-- <h1>欢迎使用！</h1> -->
@@ -24,6 +24,18 @@ export default {
         users:[]
       }
     },
+    methods:{
+      setUsers(items){
+        console.log("List组件收到数据", items);
+        this.users = items
+      }
+    },
+    mounted(){
+      this.$msgbus.$on('search', this.setUsers)
+    },
+    beforeDestroy(){
+      this.$msgbus.$off('search')
+    }
 }
 </script>
 

@@ -21,10 +21,11 @@ export default {
         searchGithubUser(){
             axios.get(`https://api.github.com/search/users?q=${this.keyWorld}`).then(
                 response=>{
-                    console.log("查找成功", response.data);
+                    console.log("请求成功");
+                    this.$msgbus.$emit('search', response.data.items)
                 },
                 error=>{
-                    console.log("查找失败", error.message);
+                    console.log("请求失败", error.message);
                 }
             )
         }

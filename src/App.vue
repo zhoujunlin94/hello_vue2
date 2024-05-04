@@ -12,10 +12,7 @@ import List from './components/List'
 
 export default {
     name: 'App',
-    components: {Search, List},
-    methods:{
-        
-    }
+    components: {Search, List}
 }
 </script>
 <style>
