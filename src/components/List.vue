@@ -1,18 +1,18 @@
 <template>
   <div class="row">
     <!-- 展示用户列表 -->
-    <div class="card" v-for="user in users" :key="user.login">
+    <div class="card" v-show="info.users.length" v-for="user in info.users" :key="user.login">
       <a :href="user.html_url" target="_blank">
         <img :src="user.avatar_url" style="width: 100px" />
       </a>
       <p class="card-text">{{ user.login }}</p>
     </div>
     <!-- 展示欢迎词 -->
-    <!-- <h1>欢迎使用！</h1> -->
+    <h1 v-show="info.isFirst">欢迎使用！</h1>
     <!-- 展示加载中 -->
-    <!-- <h1>加载中....</h1> -->
+    <h1 v-show="info.isLoading">加载中....</h1>
     <!-- 展示错误信息 -->
-    <!-- <h1>{{ info.errMsg }}</h1> -->
+    <h1 v-show="info.errMsg">{{ info.errMsg }}</h1>
   </div>
 </template>
 
@@ -21,20 +21,38 @@ export default {
     name: 'List',
     data() {
       return {
-        users:[]
+        info:{
+          isFirst: true,
+          isLoading: false,
+          errMsg: '',
+          users:[]
+        }
       }
     },
     methods:{
-      setUsers(items){
-        console.log("List组件收到数据", items);
-        this.users = items
+      updateListData(dataObj){
+        // 需要入参传很多参数 传参的时候不知道传的是啥。。。
+        // this.isFirst = isFirst
+        // this.isLoading = isLoading
+        // this.errMsg = errMsg
+        // this.users = users
+        
+        // 不能这样用 data不能赋值
+        // this.data = dataObj
+
+        // 可以这样用  但是dataObj中如果有个字段不存在 会破坏info数据的完整性
+        // this.info = dataObj
+
+        // 同名属性覆盖  推荐  不破坏原info字段的完整性
+        this.info = {...this.info, ...dataObj}
+
       }
     },
     mounted(){
-      this.$msgbus.$on('search', this.setUsers)
+      this.$msgbus.$on('updateListData', this.updateListData)
     },
     beforeDestroy(){
-      this.$msgbus.$off('search')
+      this.$msgbus.$off('updateListData')
     }
 }
 </script>
