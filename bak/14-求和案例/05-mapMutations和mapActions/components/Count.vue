@@ -29,8 +29,30 @@ export default {
         ...mapGetters(['bigSum']),
     },
     methods:{
+        // 程序员自己写方法
+        // increment(){
+        //     // Count组件vc对象中存在$store
+        //     // vc->dispatch->actions->commit->mutations->render->vc
+        //     this.$store.commit('JIA', this.n)
+        // },
+        // decrement(){
+        //     this.$store.commit('JIAN', this.n)
+        // },
+        // 生成对应方法 调用commit去联系对应的mutations (对象写法)
         ...mapMutations({increment:'JIA', decrement:'JIAN'}),
+        // 数组写法 主要方法名调整一致
+        // ...mapMutations(['JIA', 'JIAN']),
+
+        // incrementOdd(){
+        //     this.$store.dispatch('jiaOdd', this.n)
+        // },
+        // incrementWait(){
+        //     this.$store.dispatch('jiaWait', this.n)
+        // },
+        // 生成对应方法 调用dispatch去联系对应的actions (对象写法)
         ...mapActions({incrementOdd:'jiaOdd', 'incrementWait':'jiaWait'})
+        // 数组写法
+        // ...mapActions(['jiaOdd', 'jiaWait'])
     }
 }
 </script>
