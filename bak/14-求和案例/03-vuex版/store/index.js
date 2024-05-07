@@ -1,4 +1,4 @@
-// 该文件用于创建vuex中最核心的 store
+// 该文件用于创建vuex中最核心的 store   跨多组件使用
 
 // 引入vuex  npm i vuex@3
 import Vuex from 'vuex'
@@ -45,9 +45,16 @@ const state = {
     sum: 0 // 求和
 }
 
+// 准备getters-用于将state中数据加工
+const getters = {
+    bigSum(state){
+        return state.sum * 10
+    }
+}
+
 // 创建store(前提是先应用vuex插件Vue.use(Vuex))
 const store = new Vuex.Store({
-    actions, mutations, state
+    actions, mutations, state, getters
 })
 
 // 暴露store
