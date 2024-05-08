@@ -21,16 +21,16 @@ export default {
     },
     computed:{
         personList(){
-            return this.$store.state.personAbout.personList
+            return this.$store.personAbout.state.personList
         },
         sum(){
-            return this.$store.state.countAbout.sum
+            return this.$store.countAbout.state.sum
         },
     },
     methods:{
         addPerson() {
             if(this.name){
-                this.$store.commit('personAbout/ADD_PERSON', {id:nanoid(), name: this.name})
+                this.$store.commit('ADD_PERSON', {id:nanoid(), name: this.name})
                 this.name = ''
             }
         }
