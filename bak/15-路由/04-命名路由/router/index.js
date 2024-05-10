@@ -14,15 +14,16 @@ const router = new VueRouter({
     routes:[
         {
             name: 'guanyu',
-            path: '/about',  
-            component: About 
+            path: '/about',  // 路由路径 router-link的to配置值
+            component: About  // 路由组件
         },
         {
             path: '/home',
             component: Home,
+            // 嵌套路由
             children:[
                 {
-                    path: 'news',   
+                    path: 'news',   // 子路由不需要`/`
                     component: News,
                 },
                 {
@@ -31,8 +32,7 @@ const router = new VueRouter({
                     children:[
                         {   
                             name: 'xiangqing',
-                            // 绑定参数到params中
-                            path: 'detail/:id/:title',  
+                            path: 'detail',  
                             component: Detail,
                         },
                     ]
