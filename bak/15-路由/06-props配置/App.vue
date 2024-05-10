@@ -7,8 +7,9 @@
         <div class="row">
             <div class="col-xs-2 col-xs-offset-2">
                 <div class="list-group">
-                    <router-link class="list-group-item" active-class="active" to="/about">About</router-link>
-                    <router-link class="list-group-item" active-class="active" to="/home/message">Home</router-link>
+                    <!-- 默认浏览器历史为push模式（追加历史记录） 这里改为replace模式（替换当前历史记录）-->
+                    <router-link replace class="list-group-item" active-class="active" to="/about">About</router-link>
+                    <router-link replace class="list-group-item" active-class="active" to="/home/message">Home</router-link>
                 </div>
             </div>
             <div class="col-xs-6">
