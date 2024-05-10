@@ -12,8 +12,10 @@
       </ul>
       <!-- 缓存组件 不写inclue属性 里面的组件都会缓存
            include值 《组件名》
+           缓存多个用数组形式
       -->
-      <keep-alive include="News">
+      <!-- <keep-alive include="News"> -->
+        <keep-alive :include="['News']">
         <router-view></router-view>
       </keep-alive>
     </div>
