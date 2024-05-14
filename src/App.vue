@@ -1,42 +1,36 @@
 <template>
     <div>
-        <div class="row">
-            <!-- 不是通过路由形式展示的About组件  不会调用beforeRouteEnter方法 -->
-            <About/>
-            <Banner/>
-        </div>
+        <button>原生按钮</button>
+        <input type="text">
 
-        <div class="row">
-            <div class="col-xs-2 col-xs-offset-2">
-                <div class="list-group">
-                    <router-link class="list-group-item" active-class="active" to="/about">About</router-link>
-                    <router-link class="list-group-item" active-class="active" to="/home">Home</router-link>
-                </div>
-            </div>
-            <div class="col-xs-6">
-                <div class="panel">
-                    <div class="panel-body">
-                        <router-view></router-view>
-                    </div>
-                </div>
-            </div>
-        </div>
-  </div>
+        <el-row>
+            <el-button>默认按钮</el-button>
+            <el-button type="primary">主要按钮</el-button>
+            <el-button type="success">成功按钮</el-button>
+            <el-button type="info">信息按钮</el-button>
+            <el-button type="warning">警告按钮</el-button>
+            <el-button type="danger">危险按钮</el-button>
+        </el-row>
+
+        <el-date-picker
+            type="date"
+            placeholder="选择日期">
+        </el-date-picker>
+
+    </div>
 </template>
 
 <script>
-import Banner from './components/Banner.vue'
-import About from './pages/About.vue'
 
 export default {
     name: 'App',
-    components: {Banner, About},
+    components: {},
     data() {
         return {
         }
     }
 }
 </script>
-<style scoped>
+<style>
 
 </style>

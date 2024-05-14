@@ -1,17 +1,16 @@
 import Vue from 'vue'
 import App from './App.vue'
-import VueRouter from 'vue-router'
-import router from './router/index.js'
+// npm i element-ui  引入ElementUI
+import ElementUI from 'element-ui';
+// 引入ElementUI全部样式
+import 'element-ui/lib/theme-chalk/index.css';
+
 
 Vue.config.productionTip = false
 // 引用插件
-Vue.use(VueRouter)
+Vue.use(ElementUI)
 
 new Vue({
     el: '#app',
     render: h => h(App),
-    router
 })
-
-
-// npm run build  打包到 dist文件夹
