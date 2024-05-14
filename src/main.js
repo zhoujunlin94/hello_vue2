@@ -12,3 +12,6 @@ new Vue({
     render: h => h(App),
     router
 })
+
+
+// npm run build  打包到 dist文件夹

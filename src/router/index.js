@@ -8,7 +8,7 @@ import Detail from '../pages/Detail'
 
 const router = new VueRouter({
     // 默认hash模式  /#/a/b/c 这种服务器不处理，忽略
-    mode: 'history',
+    mode: 'hash',
     routes:[
         {
             name: 'guanyu',
