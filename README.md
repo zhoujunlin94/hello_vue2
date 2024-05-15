@@ -1,5 +1,12 @@
 # hello_vue2
 
+# 安装脚手架
+```
+npm install -g @vue/cli
+vue create xxxx
+```
+
+
 ## Project setup
 ```
 npm install
